@@ -52,11 +52,17 @@ public:
     }
 
     void pop_back(){
-        Node*temp = head;
-        while(temp->next->next == NULL){
+        if(head == NULL){
+            cout <<"Head is empty\n";
+            return;
+        }
+        Node* temp = head;
+        while(temp->next != tail){
             temp = temp->next;
         }
-        delete temp;
+        temp->next = NULL;
+        delete tail;
+        tail = temp;
     }
 
     void print(){

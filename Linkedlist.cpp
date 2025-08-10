@@ -82,6 +82,21 @@ public:
         temp->next = newNode;
     }
 
+    int search(int val){
+        Node* temp = head;
+        int idx =0;
+
+        while(temp != NULL){
+            if(temp->data == val){
+                return idx;
+            } else {
+                temp = temp->next;
+                idx++;
+            }  
+        }
+        return -1;
+    }
+
     void print(){
         Node* temp = head;
         while(temp != NULL){
@@ -103,6 +118,8 @@ int main(){
 
     ll.Insert(6,1);
     ll.print();
+
+    cout << ll.search(6) << "";
 
     return 0;
 }

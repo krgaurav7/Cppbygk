@@ -65,6 +65,23 @@ public:
         tail = temp;
     }
 
+    void Insert(int val, int pos){
+        if(pos<0){
+            cout <<"Invalid Position";
+            return;
+        }
+        if(pos == 0){
+            push_front(val);
+        }
+        Node* temp = head;
+        for(int i=0; i<pos-1; i++){
+            temp = temp->next;
+        }
+        Node* newNode = new Node(val);
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+
     void print(){
         Node* temp = head;
         while(temp != NULL){
@@ -84,6 +101,7 @@ int main(){
     ll.pop_front();
     ll.pop_back();
 
+    ll.Insert(6,1);
     ll.print();
 
     return 0;
